@@ -20,7 +20,16 @@ class TreatmentsRelationManager extends RelationManager
             ->schema([
                 Forms\Components\TextInput::make('description')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->columnSpan('full'),
+                    Forms\Components\TextInput::make('notes')
+                    ->maxLength(500)
+                    ->columnSpan('full'),
+                    Forms\Components\TextInput::make('price')
+                    ->numeric()
+                    ->required()
+                    ->prefix('$')
+                    ->maxValue(9999.99),
             ]);
     }
 
